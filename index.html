@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>精密模切材料与电子辅料解决方案 | 德盛</title>
+<meta name="description" content="专注于精密橡胶制品、电子绝缘材料、导热散热材料的研发与模切加工，为消费电子、汽车电子、具身智能机器人、新能源等行业提供一站式材料解决方案。">
+<meta name="keywords" content="精密模切,橡胶制品,电子绝缘材料,导热散热,EVA包装,电磁屏蔽,背胶模切">
+
+<!-- 字体与基础样式 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== 基础重置 ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC',sans-serif;color:#333;line-height:1.6;background:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+/* ===== 变量 ===== */
+:root{
+  --primary:#1e3a8a;
+  --primary-light:#2563eb;
+  --accent:#f59e0b;
+  --text:#1f2937;
+  --text-light:#6b7280;
+  --bg-light:#f8fafc;
+  --border:#e5e7eb;
+}
+
+/* ===== 头部导航 ===== */
+.web_head{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:all .3s}
+.head_layout{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 24px;height:72px}
+.logo img{height:40px}
+.head_nav{display:flex;gap:4px}
+.head_nav > li{position:relative}
+.head_nav > li > a{display:block;padding:24px 16px;font-size:14px;font-weight:500;color:var(--text);transition:color .2s}
+.head_nav > li:hover > a{color:var(--primary-light)}
+/* 下拉菜单 */
+.sub-menu{position:absolute;top:100%;left:0;background:#fff;min-width:200px;box-shadow:0 10px 40px rgba(0,0,0,0.1);border-radius:8px;padding:8px 0;opacity:0;visibility:hidden;transform:translateY(10px);transition:all .25s}
+.head_nav > li:hover .sub-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.sub-menu li a{display:block;padding:10px 20px;font-size:13px;color:var(--text-light);transition:all .2s}
+.sub-menu li a:hover{color:var(--primary-light);background:var(--bg-light);padding-left:24px}
+/* 三级菜单 */
+.sub-menu .sub-menu{left:100%;top:0}
+
+/* ===== Banner ===== */
+.slider_banner{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.banner-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.banner-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(30,58,138,0.85),rgba(37,99,235,0.7));z-index:2}
+.banner-content{position:relative;z-index:3;text-align:center;color:#fff;padding:0 24px}
+.banner-content h1{font-size:52px;font-weight:700;margin-bottom:16px;letter-spacing:2px;opacity:0;transform:translateY(30px);animation:fadeUp .8s .3s forwards}
+.banner-content p{font-size:18px;opacity:.9;margin-bottom:40px;opacity:0;transform:translateY(30px);animation:fadeUp .8s .5s forwards}
+.btn-primary{display:inline-block;padding:14px 40px;background:var(--accent);color:#fff;font-weight:600;border-radius:50px;transition:transform .3s,box-shadow .3s;opacity:0;animation:fadeUp .8s .7s forwards}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,158,11,0.4)}
+.scroll-down{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;color:#fff;text-align:center;cursor:pointer;animation:bounce 2s infinite}
+.scroll-down span{display:block;font-size:12px;margin-bottom:8px;letter-spacing:2px;opacity:.8}
+
+/* ===== 通用区块 ===== */
+.section{padding:100px 24px;max-width:1280px;margin:0 auto}
+.index_title{font-size:36px;font-weight:700;color:var(--primary);margin-bottom:16px;position:relative;display:inline-block}
+.index_title::after{content:'';position:absolute;bottom:-8px;left:0;width:40px;height:3px;background:var(--accent);border-radius:2px}
+.section-desc{color:var(--text-light);font-size:16px;margin-bottom:48px;max-width:600px}
+
+/* ===== 数字滚动区 (#page02) ===== */
+.index_our{background:var(--bg-light)}
+.our-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.scoll_num{display:flex;gap:40px;margin-bottom:32px}
+.scoll_num li{text-align:center}
+.scoll_num h3{font-size:48px;font-weight:700;color:var(--primary);line-height:1}
+.scoll_num span{font-size:24px;color:var(--primary-light);font-weight:600}
+.scoll_num p{font-size:14px;color:var(--text-light);margin-top:4px}
+.our_right p{margin-bottom:16px;color:var(--text-light);line-height:1.8}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;color:var(--primary-light);font-weight:600;margin-top:16px;transition:gap .3s}
+.link-arrow:hover{gap:12px}
+
+/* ===== 工厂/基地 (#page03) ===== */
+.loca-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.loca-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:transform .3s,box-shadow .3s}
+.loca-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.1)}
+.loca-card img{width:100%;height:220px;object-fit:cover}
+.loca-card .info{padding:24px}
+.loca-card h3{font-size:20px;margin-bottom:8px;color:var(--primary)}
+.loca-card p{font-size:14px;color:var(--text-light);line-height:1.6}
+.loca-tags{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.loca-tags span{font-size:12px;padding:4px 12px;background:var(--bg-light);color:var(--primary);border-radius:20px}
+
+/* ===== 专注领域 Tab (#page04) ===== */
+.tab-nav{display:flex;gap:8px;margin-bottom:40px;border-bottom:2px solid var(--border)}
+.tab-nav button{padding:12px 24px;background:none;border:none;font-size:14px;font-weight:600;color:var(--text-light);cursor:pointer;position:relative;transition:color .3s}
+.tab-nav button.active{color:var(--primary)}
+.tab-nav button.active::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background:var(--primary-light)}
+.tab-panel{display:none;animation:fadeIn .5s}
+.tab-panel.active{display:block}
+.field-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.field-card{padding:28px;border-radius:12px;background:#fff;border:1px solid var(--border);transition:all .3s;cursor:pointer}
+.field-card:hover{border-color:var(--primary-light);box-shadow:0 8px 30px rgba(37,99,235,0.08)}
+.field-card h4{font-size:18px;margin-bottom:8px;color:var(--primary)}
+.field-card p{font-size:13px;color:var(--text-light)}
+.field-card .tags{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.field-card .tag{font-size:11px;padding:3px 10px;border-radius:4px;background:#eff6ff;color:#2563eb}
+
+/* ===== 合作伙伴 (#page05) ===== */
+.partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin-top:40px;align-items:center}
+.partner-item{background:#fff;border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;align-items:center;justify-content:center;height:100px;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+.partner-item img{max-height:48px;max-width:110px;width:auto;height:auto;object-fit:contain}
+.partner-item span{font-weight:700;color:var(--text-light);font-size:14px}
+
+/* ===== 行业知识 (#page06) ===== */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.news-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:transform .3s}
+.news-card:hover{transform:translateY(-4px)}
+.news-card img{height:180px;width:100%;object-fit:cover}
+.news-card .info{padding:20px}
+.news-card .date{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:8px}
+.news-card h4{font-size:16px;color:var(--text);margin-bottom:8px;line-height:1.4}
+.news-card a{color:var(--primary-light);font-size:13px;font-weight:600}
+
+/* ===== 页脚 ===== */
+.web_footer{background:#0f172a;color:#94a3b8;padding:60px 24px 24px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;max-width:1280px;margin:0 auto}
+.foot-col h4{color:#fff;font-size:16px;margin-bottom:20px}
+.foot-col ul li{margin-bottom:10px}
+.foot-col ul li a{font-size:13px;transition:color .2s}
+.foot-col ul li a:hover{color:#fff}
+.foot-bottom{max-width:1280px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e293b;display:flex;justify-content:space-between;font-size:12px}
+
+/* ===== 动画 ===== */
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+/* ===== 滚动显示 ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s ease-out}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+/* ===== 移动端菜单 ===== */
+.mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px}
+.mobile-toggle span{width:24px;height:2px;background:var(--text);transition:.3s}
+@media(max-width:1024px){
+  .mobile-toggle{display:flex}
+  .head_nav{position:fixed;top:72px;left:0;width:100%;height:calc(100vh - 72px);background:#fff;flex-direction:column;padding:20px;transform:translateX(-100%);transition:.3s;overflow-y:auto}
+  .head_nav.open{transform:translateX(0)}
+  .sub-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;padding-left:16px;display:none}
+  li.open > .sub-menu{display:block}
+  .our-grid,.loca-grid,.news-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .banner-content h1{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<!-- 头部 -->
+<header class="web_head">
+  <div class="head_layout">
+    <a href="/" class="logo"><img src="./image/logo/DESHENG1.png"  alt="公司Logo"></a>
+    <div class="mobile-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul class="head_nav" id="mainNav">
+        <li><a href="/">首页</a>
+          <ul class="sub-menu">
+            <li><a href="/#page02">公司介绍</a></li>
+            <li><a href="/#page03">工厂介绍</a></li>
+            <li><a href="/#page04">专注领域</a></li>
+            <li><a href="/#page05">合作伙伴</a></li>
+            <li><a href="/#page06">行业知识</a></li>
+          </ul>
+        </li>
+        <li><a href="/about/">关于我们</a>
+          <ul class="sub-menu">
+            <li><a href="/about/#intro">公司/工厂介绍</a></li>
+            <li><a href="/about/#vision">愿景</a></li>
+            <li><a href="/about/#mission">使命</a></li>
+            <li><a href="/about/#values">核心价值观</a></li>
+            <li><a href="/about/#management">管理方法论</a></li>
+          </ul>
+        </li>
+        <li><a href="/industry/">行业</a>
+          <ul class="sub-menu">
+            <li><a href="/industry/consumer-electronics/">消费电子</a></li>
+            <li><a href="/industry/smart-home/">智能家电</a></li>
+            <li><a href="/industry/telecom/">通讯与新能源</a></li>
+            <li><a href="/industry/power-energy/">人工智能领域</a></li>
+            <li><a href="/industry/automotive/">汽车电子</a></li>
+            <li><a href="/industry/industrial-auto/">工业自动化</a></li>
+            <li><a href="/industry/medical/">医疗器械配件</a></li>
+            <li><a href="/industry/frontier-tech/">前沿科技配件</a></li>
+            <li><a href="/industry/packaging/">精密包装</a></li>
+          </ul>
+        </li>
+        <li><a href="/materials/">材料</a>
+          <ul class="sub-menu">
+            <li><a href="/materials/rubber/">精密橡胶制品</a></li>
+            <li><a href="/materials/insulation/">电子绝缘材料</a></li>
+            <li><a href="/materials/thermal/">导热散热材料</a></li>
+            <li><a href="/materials/acoustic-filter/">吸音与过滤材料</a></li>
+            <li><a href="/materials/adhesive/">背胶粘接解决方案</a></li>
+            <li><a href="/materials/eva-sponge/">EVA与海绵包装</a></li>
+            <li><a href="/materials/emc-shielding/">电磁屏蔽材料</a></li>
+            <li><a href="/materials/flame-retardant/">防火阻燃系列</a></li>
+          </ul>
+        </li>
+        <li><a href="/knowledge/">行业知识</a>
+          <ul class="sub-menu">
+            <li><a href="/knowledge/materials-wiki/">材料百科</a></li>
+            <li><a href="/knowledge/engineering/">工程优化</a></li>
+            <li><a href="/knowledge/quality-compliance/">质量与合规</a></li>
+            <li><a href="/knowledge/trends/">行业趋势</a></li>
+            <li><a href="/knowledge/downloads/">下载中心</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact/">联系我们</a>
+          <ul class="sub-menu">
+            <li><a href="/contact/#info">联系方式</a></li>
+            <li><a href="/contact/#inquiry">在线咨询</a></li>
+            <li><a href="/contact/#quote">报价申请</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Banner -->
+<section class="slider_banner">
+  <video class="banner-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-woman-typing-on-a-laptop-4803-large.mp4" type="video/mp4">
+  </video>
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    <h1>精密模切 · 材料创新</h1>
+    <p>专注于精密橡胶、电子绝缘、导热散热材料的研发与模切加工<br>为消费电子、汽车电子、新能源领域提供一站式解决方案</p>
+    <a href="/contact/#quote" class="btn-primary">获取报价方案</a>
+  </div>
+  <a href="#page02" class="scroll-down" onclick="smoothScroll(event,'#page02')">
+    <span>SCROLL</span>
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</section>
+
+<!-- 公司介绍 #page02 -->
+<section class="section index_our" id="page02">
+  <div class="our-grid">
+    <div class="our_left reveal">
+      <ul class="scoll_num">
+        <li><h3 class="counter" data-target="1994">0</h3><p>成立于</p></li>
+        <li><span>+</span><h3 class="counter" data-target="50000">0</h3><p>平方米厂房</p></li>
+        <li><span>+</span><h3 class="counter" data-target="80">0</h3><p>项技术专利</p></li>
+      </ul>
+      <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800" alt="工厂实景" style="border-radius:12px;width:100%">
+    </div>
+    <div class="our_right reveal">
+      <h2 class="index_title">公司介绍</h2>
+      <p>我们是一家专注于精密模切材料研发与制造的高新技术企业，深耕电子辅料行业二十余年。从最初的几台模切机起步，发展成为拥有全制程生产能力的现代化工厂。</p>
+      <p>产品涵盖精密橡胶制品、电子绝缘材料、导热散热材料、吸音过滤材料、背胶粘接方案、EVA海绵包装、电磁屏蔽材料及防火阻燃系列，广泛应用于消费电子、智能家电、汽车电子、工业自动化等领域。</p>
+      <a href="/about/" class="link-arrow">了解详情 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 工厂介绍 #page03 -->
+<section class="section" id="page03" style="background:#fff">
+  <div style="text-align:center;margin-bottom:16px" class="reveal">
+    <h2 class="index_title" style="display:inline-block">基地与产能</h2>
+    <p class="section-desc" style="margin:20px auto 0">三大生产基地协同运作，覆盖华南核心制造区域</p>
+  </div>
+  <div class="loca-grid">
+    <div class="loca-card reveal">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600" alt="总部工厂">
+      <div class="info">
+        <h3>深圳 · 宝安</h3>
+        <p>创立深耕基地，依托万亿级规上工业底盘和密集的“专精特新”企业产业集群，宝安升级为服务大湾区、辐射全国的智能制造中枢与应用场景创新高地。</p>
+        <div class="loca-tags"><span>创新</span><span>高效</span><span>灵活定制</span></div>
+      </div>
+    </div>
+    <div class="loca-card reveal">
+      <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600" alt="苏州工厂">
+      <div class="info">
+        <h3>深圳 · 光明</h3>
+        <p>智能化产线基地，专注精密模切量产与自动化生产，服务前沿科技客户。</p>
+        <div class="loca-tags"><span>精密量产</span><span>智能制造</span><span>自动化产线</span></div>
+      </div>
+    </div>
+    <div class="loca-card reveal">
+      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600" alt="重庆工厂">
+      <div class="info">
+        <h3>广东 · 中山</h3>
+        <p>规模化生产与品质管控中心，兼顾创新研发与出口业务。</p>
+        <div class="loca-tags"><span>创新研发</span><span>规模化生产</span><span>品质管控</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 专注领域 #page04 -->
+<section class="section" id="page04" style="background:var(--bg-light)">
+  <div class="reveal" style="text-align:center">
+    <h2 class="index_title" style="display:inline-block">专注领域</h2>
+    <p class="section-desc" style="margin:20px auto 0">按行业场景与材料类型双维度呈现核心能力</p>
+  </div>
+  
+  <div class="tab-nav reveal" style="justify-content:center;margin-top:32px">
+    <button class="active" onclick="switchTab(event,'tab-industry')">按行业</button>
+    <button onclick="switchTab(event,'tab-materials')">按材料</button>
+  </div>
+  
+  <!-- 行业面板 -->
+  <div id="tab-industry" class="tab-panel active">
+    <div class="field-grid">
+      <a href="/industry/consumer-electronics/" class="field-card reveal">
+        <h4>消费电子</h4>
+        <p>智能穿戴 / TWS耳机 / AR眼镜 / 游戏手柄 / 微型MIC</p>
+        <div class="tags"><span>缓冲防震</span><span>绝缘屏蔽</span></div>
+      </a>
+      <a href="/industry/smart-home/" class="field-card reveal">
+        <h4>智能家电</h4>
+        <p>监控摄像头 / 智能开关 / 智能音箱 / 吸尘器 / 吹风机</p>
+        <div class="tags"><span>吸音棉</span><span>防火海绵</span></div>
+      </a>
+      <a href="/industry/automotive/" class="field-card reveal">
+        <h4>汽车电子</h4>
+        <p>智能座舱 / ADAS / 车载音响 / 充电桩</p>
+        <div class="tags"><span>导热矽胶布</span><span>阻燃材料</span></div>
+      </a>
+      <a href="/industry/power-energy/" class="field-card reveal">
+        <h4>电源与新能源</h4>
+        <p>适配器 / 充电器 / 储能设备绝缘与散热</p>
+        <div class="tags"><span>麦拉片</span><span>云母片</span></div>
+      </a>
+      <a href="/industry/medical/" class="field-card reveal">
+        <h4>医疗器械配件</h4>
+        <p>符合环保要求的橡胶、海绵制品</p>
+        <div class="tags"><span>环保认证</span><span>生物相容</span></div>
+      </a>
+      <a href="/industry/frontier-tech/" class="field-card reveal">
+        <h4>前沿科技配件</h4>
+        <p>无人机 / AI机器人 / 智能传感器 / 微型麦克风模组</p>
+        <div class="tags"><span>精密模切</span><span>超薄泡棉</span></div>
+      </a>
+      <a href="/industry/frontier-tech/" class="field-card reveal">
+        <h4>人工智能领域</h4>
+        <p>具身智能机器人 /AI服务器 / 液冷机箱 / 传感器模组 </p>
+        <div class="tags"><span>精密模切</span><span>超薄泡棉</span></div>
+      </a>
+      <a href="/industry/frontier-tech/" class="field-card reveal">
+        <h4>工业自动化</h4>
+        <p>工业机器人 / 协作机器人(Cobot) / 自动化产线</p>
+        <div class="tags"><span>精密模切</span><span>超薄泡棉</span></div>
+      </a>
+    </div>
+  </div>
+  
+  <!-- 材料面板 -->
+  <div id="tab-materials" class="tab-panel">
+    <div class="field-grid">
+      <a href="/materials/rubber/" class="field-card reveal">
+        <h4>精密橡胶制品</h4>
+        <p>脚垫、矽脚垫、橡胶磁、回力胶、潜水胶</p>
+        <div class="tags"><span>缓冲防震</span></div>
+      </a>
+      <a href="/materials/insulation/" class="field-card reveal">
+        <h4>电子绝缘材料</h4>
+        <p>快巴纸(UL认证)、青稞纸、麦拉片、云母片、PET</p>
+        <div class="tags"><span>UL认证</span></div>
+      </a>
+      <a href="/materials/thermal/" class="field-card reveal">
+        <h4>导热散热材料</h4>
+        <p>铜箔、铝箔、散热片、导热矽胶布</p>
+        <div class="tags"><span>高导热</span></div>
+      </a>
+      <a href="/materials/emc-shielding/" class="field-card reveal">
+        <h4>吸音过滤材料</h4>
+        <p>防尘网、过滤网、吸音棉、防火海绵</p>
+        <div class="tags"><span>EMC合规</span></div>
+      </a>
+      <a href="/materials/emc-shielding/" class="field-card reveal">
+        <h4>电磁屏蔽材料</h4>
+        <p>导电布、导电泡棉、导电橡胶、屏蔽膜</p>
+        <div class="tags"><span>EMC合规</span></div>
+      </a>
+      <a href="/materials/flame-retardant/" class="field-card reveal">
+        <h4>防火阻燃系列</h4>
+        <p>防火EVA、防火海绵、防火快巴纸</p>
+        <div class="tags"><span>UL94-V0</span></div>
+      </a>
+      <a href="/materials/adhesive/" class="field-card reveal">
+        <h4>背胶粘接解决方案</h4>
+        <p>3M、索尼、日东双面胶模切加工</p>
+        <div class="tags"><span>品牌胶带</span></div>
+      </a>
+      <a href="/materials/adhesive/" class="field-card reveal">
+        <h4>EVA海绵包装</h4>
+        <p>EVA包装盒、珍珠棉、高密度海绵</p>
+        <div class="tags"><span>品牌胶带</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 合作伙伴 #page05 -->
+<section class="section" id="page05" style="background:#fff">
+  <div class="reveal" style="text-align:center">
+    <h2 class="index_title" style="display:inline-block">合作伙伴</h2>
+    <p class="section-desc" style="margin:20px auto 0">长期服务于国内外知名电子制造企业与终端品牌</p>
+  </div>
+  <div class="partner-grid reveal">
+    <div class="partner-item"><img src="./image/logo/sony.png" alt="索尼"></div>
+    <div class="partner-item"><img src="./image/logo/BYD.png" alt="比亚迪"></div>
+    <div class="partner-item"><img src="./image/logo/mi.png" alt="小米集团"></div>
+    <div class="partner-item"><img src="./image/logo/oppo.png" alt="OPPO"></div>
+    <div class="partner-item"><img src="./image/logo/dji.png" alt="大疆创新"></div>
+    <div class="partner-item"><img src="./image/logo/midea.png" alt="美的集团"></div>
+    <div class="partner-item"><img src="./image/logo/hikvision.jpg" alt="海康威视"></div>
+    <div class="partner-item"><img src="./image/logo/huichuan.png" alt="汇川技术"></div>
+    <div class="partner-item"><img src="./image/logo/sanxing.png" alt="三星电子"></div>
+    <div class="partner-item"><img src="./image/logo/ningde.jpg" alt="宁德时代"></div>
+    <div class="partner-item"><img src="./image/logo/aobi.png" alt="奥比中光"></div>
+    <div class="partner-item"><img src="./image/logo/anpeilong.png" alt="安培龙"></div>
+  </div>
+</section>
+
+<!-- 行业知识 #page06 -->
+<section class="section" id="page06" style="background:var(--bg-light)">
+  <div class="reveal" style="text-align:center">
+    <h2 class="index_title" style="display:inline-block">行业知识</h2>
+    <p class="section-desc" style="margin:20px auto 0">材料选型 · 工艺指南 · 行业洞察</p>
+  </div>
+  <div class="news-grid">
+    <div class="news-card reveal">
+      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600" alt="EVA材料">
+      <div class="info">
+        <div class="date">选型指南</div>
+        <h4>EVA vs IXPE vs 珍珠棉：电子包装材料怎么选？</h4>
+        <p style="color:#666;font-size:13px;margin:8px 0;line-height:1.6">三种主流缓冲材料各有优劣。EVA弹性好但偏硬，IXPE柔软且阻燃，珍珠棉性价比高但回弹性一般。本文从成本、性能、应用场景三个维度帮您快速决策。</p>
+        <a href="#">阅读指南 →</a>
+      </div>
+    </div>
+    <div class="news-card reveal">
+      <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600" alt="UL认证">
+      <div class="info">
+        <div class="date">质量合规</div>
+        <h4>出口电子产品的UL认证材料怎么选？这几点最容易被忽视</h4>
+        <p style="color:#666;font-size:13px;margin:8px 0;line-height:1.6">UL认证绝缘材料是进入欧美市场的门槛。但同样标称UL认证，快巴纸和云母片的耐温等级、厚度公差差异巨大，选错可能导致整批货被退运。</p>
+        <a href="#">了解详情 →</a>
+      </div>
+    </div>
+    <div class="news-card reveal">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="AI机器人">
+      <div class="info">
+        <div class="date">行业趋势</div>
+        <h4>AI机器人爆发带动精密橡胶件需求：这三个应用场景增长最快</h4>
+        <p style="color:#666;font-size:13px;margin:8px 0;line-height:1.6">协作机器人关节密封、防震脚垫、导电橡胶按键——AI硬件的快速迭代正在重塑轻胶制品的供应链。哪些细分品类将在2026年迎来爆发？</p>
+        <a href="#">查看全文 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 页脚 -->
+<footer class="web_footer">
+  <div class="foot-grid">
+    <div class="foot-col">
+      <img src="./image/logo/DESHENG.png" alt="公司名称Logo" style="margin-bottom:16px;opacity:.9;max-width:120px; height:auto;">
+      <p style="font-size:13px;line-height:1.8">专注于精密模切材料的研发、生产与销售，致力于成为全球领先的电子辅料解决方案提供商。</p>
+    </div>
+    <div class="foot-col">
+      <h4>行业应用</h4>
+      <ul>
+        <li><a href="/industry/consumer-electronics/">消费电子</a></li>
+        <li><a href="/industry/automotive/">汽车电子</a></li>
+        <li><a href="/industry/power-energy/">电源新能源</a></li>
+        <li><a href="/industry/medical/">医疗器械</a></li>
+      </ul>
+    </div> 
+    <div class="foot-col">
+      <h4>产品中心</h4>
+      <ul>
+        <li><a href="/materials/rubber/">精密橡胶</a></li>
+        <li><a href="/materials/insulation/">绝缘材料</a></li>
+        <li><a href="/materials/thermal/">导热散热</a></li>
+        <li><a href="/materials/emc-shielding/">电磁屏蔽</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>关于我们</h4>
+      <ul>
+        <li><a href="/about/#intro">公司简介</a></li>
+        <li><a href="/about/#vision">愿景使命</a></li>
+        <li><a href="/knowledge/">行业知识</a></li>
+        <li><a href="/contact/">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>联系方式</h4>
+      <ul>
+        <li>电话：+86 0755-2748 7761</li>
+        <li>邮箱：sales@szdesheng.com</li>
+        <li>地址：广东省深圳市宝安区益成工业园</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 公司名称 版权所有 | <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#64748b">粤ICP备XXXXXXXX号</a></p>
+    <p><a href="/sitemap.xml" style="color:#64748b">网站地图</a> | <a href="/privacy-policy/" style="color:#64748b">隐私政策</a></p>
+  </div>
+</footer>
+
+<!-- 脚本 -->
+<script>
+// 平滑锚点跳转
+function smoothScroll(e,target){
+  e.preventDefault();
+  const el=document.querySelector(target);
+  if(el){window.scrollTo({top:el.offsetTop-80,behavior:'smooth'})}
+}
+
+// 移动端菜单
+function toggleMenu(){
+  document.getElementById('mainNav').classList.toggle('open');
+}
+
+// Tab 切换
+function switchTab(e,panelId){
+  document.querySelectorAll('.tab-nav button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// 数字滚动动画
+const counters=document.querySelectorAll('.counter');
+const runCounter=()=>{
+  counters.forEach(counter=>{
+    const target=+counter.getAttribute('data-target');
+    const increment=target/100;
+    let current=0;
+    const update=()=>{
+      current+=increment;
+      if(current<target){counter.innerText=Math.ceil(current);requestAnimationFrame(update)}
+      else{counter.innerText=target}
+    };
+    update();
+  });
+};
+
+// ScrollReveal 滚动显示
+const reveals=document.querySelectorAll('.reveal');
+const revealOnScroll=()=>{
+  reveals.forEach(el=>{
+    const top=el.getBoundingClientRect().top;
+    const windowHeight=window.innerHeight;
+    if(top<windowHeight-80)el.classList.add('active');
+  });
+};
+
+// 导航高亮
+const sections=document.querySelectorAll('section[id]');
+const highlightNav=()=>{
+  let current='';
+  sections.forEach(section=>{
+    const sectionTop=section.offsetTop-100;
+    if(scrollY>=sectionTop)current=section.getAttribute('id');
+  });
+  document.querySelectorAll('.head_nav a').forEach(link=>{
+    link.style.color='';
+    if(link.getAttribute('href')==='/#'+current)link.style.color='var(--primary-light)';
+  });
+};
+
+// 事件监听
+let counted=false;
+window.addEventListener('scroll',()=>{
+  revealOnScroll();
+  highlightNav();
+  if(!counted && document.querySelector('.counter').getBoundingClientRect().top<window.innerHeight){
+    runCounter();counted=true;
+  }
+});
+window.addEventListener('load',()=>{revealOnScroll();highlightNav();});
+
+// 头部滚动效果
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const head=document.querySelector('.web_head');
+  if(window.scrollY>100)head.style.boxShadow='0 2px 20px rgba(0,0,0,0.08)';
+  else head.style.boxShadow='none';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系我们 - 在线咨询与报价申请 | 公司名称</title>
+<meta name="description" content="欢迎联系我们的销售与技术团队。提供在线咨询表单与报价申请，快速响应您的精密模切材料需求。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC',sans-serif;color:#333;line-height:1.6}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+:root{--primary:#1e3a8a;--primary-light:#2563eb;--accent:#f59e0b;--text:#1f2937;--text-light:#6b7280;--bg-light:#f8fafc;--border:#e5e7eb;--error:#ef4444;--success:#10b981}
+
+/* 头部省略（与前面一致） */
+.web_head{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.head_layout{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 24px;height:72px}
+.head_nav{display:flex;gap:4px}
+.head_nav > li{position:relative}
+.head_nav > li > a{display:block;padding:24px 16px;font-size:14px;font-weight:500;color:var(--text)}
+.head_nav > li:hover > a{color:var(--primary-light)}
+.sub-menu{position:absolute;top:100%;left:0;background:#fff;min-width:200px;box-shadow:0 10px 40px rgba(0,0,0,0.1);border-radius:8px;padding:8px 0;opacity:0;visibility:hidden;transform:translateY(10px);transition:all .25s}
+.head_nav > li:hover .sub-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.mobile-toggle{display:none}
+@media(max-width:1024px){
+  .mobile-toggle{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:10px}
+  .mobile-toggle span{width:24px;height:2px;background:var(--text)}
+  .head_nav{position:fixed;top:72px;left:0;width:100%;height:calc(100vh - 72px);background:#fff;flex-direction:column;padding:20px;transform:translateX(-100%);transition:.3s;overflow-y:auto}
+  .head_nav.open{transform:translateX(0)}
+}
+
+/* 页面标题 */
+.page-title{text-align:center;padding:140px 24px 60px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff}
+.page-title h1{font-size:36px;margin-bottom:10px}
+.page-title p{opacity:.9}
+
+/* 联系信息卡片 */
+.info-cards{max-width:1280px;margin:-40px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;z-index:2}
+.info-card{background:#fff;border-radius:12px;padding:28px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.08);border:1px solid var(--border)}
+.info-card .icon{width:48px;height:48px;background:var(--bg-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:20px}
+.info-card h4{font-size:15px;margin-bottom:6px;color:var(--primary)}
+.info-card p{font-size:13px;color:var(--text-light)}
+
+/* 地图区 */
+.map-section{max-width:1280px;margin:60px auto;padding:0 24px}
+.map-container{height:400px;background:#e2e8f0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--text-light);border:2px dashed #cbd5e1}
+.map-container p{font-size:14px}
+
+/* 表单区 */
+.form-section{max-width:1000px;margin:0 auto;padding:0 24px 80px}
+.form-tabs{display:flex;gap:8px;margin-bottom:32px;border-bottom:2px solid var(--border)}
+.form-tabs button{padding:14px 32px;background:none;border:none;font-size:15px;font-weight:600;color:var(--text-light);cursor:pointer;position:relative}
+.form-tabs button.active{color:var(--primary)}
+.form-tabs button.active::after{content:'';position:absolute;bottom:-2px;left:0;width:100%;height:2px;background:var(--primary-light)}
+.form-panel{display:none}
+.form-panel.active{display:block;animation:fadeIn .4s}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:14px;font-weight:500;margin-bottom:6px;color:var(--text)}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--primary-light)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.btn-submit{padding:14px 48px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s}
+.btn-submit:hover{background:var(--primary-light);transform:translateY(-1px)}
+.error-msg{color:var(--error);font-size:12px;margin-top:4px;display:none}
+.success-msg{background:#ecfdf5;color:var(--success);padding:16px;border-radius:8px;margin-bottom:20px;display:none;font-size:14px}
+
+@media(max-width:1024px){
+  .info-cards{grid-template-columns:1fr 1fr;margin-top:-20px}
+  .form-row{grid-template-columns:1fr}
+  .page-title h1{font-size:26px}
+}
+@media(max-width:640px){
+  .info-cards{grid-template-columns:1fr}
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<header class="web_head">
+  <div class="head_layout">
+    <a href="/" class="logo"><img src="../image/logo/DESHENG1.png"  alt="公司Logo" style="height:40px"></a>
+    <div class="mobile-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')"><span></span><span></span><span></span></div>
+    <nav>
+      <ul class="head_nav" id="mainNav">
+        <li><a href="/">首页</a></li>
+        <li><a href="/about/">关于我们</a></li>
+        <li><a href="/industry/">行业</a></li>
+        <li><a href="/material/">材料</a></li>
+        <li><a href="/knowledge/">行业知识</a></li>
+        <li><a href="/contact/">联系我们</a>
+          <ul class="sub-menu">
+            <li><a href="/contact/#info">联系方式</a></li>
+            <li><a href="/contact/#inquiry">在线咨询</a></li>
+            <li><a href="/contact/#quote">报价申请</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-title">
+  <h1>联系我们</h1>
+  <p>期待与您的合作，请通过以下方式与我们取得联系</p>
+</div>
+
+<!-- 联系信息 -->
+<div class="info-cards" id="info">
+  <div class="info-card">
+    <div class="icon">📍</div>
+    <h4>总部地址</h4>
+    <p>广东省深圳市宝安区益成工业园A栋</p>
+  </div>
+  <div class="info-card">
+    <div class="icon">📞</div>
+    <h4>电话咨询</h4>
+    <p>+86 0755-2784-7761 <br> +86 0755-2784-7762</p>
+  </div>
+  <div class="info-card">
+    <div class="icon">✉️</div>
+    <h4>电子邮箱</h4>
+    <p>sales@szdesheng.com</p>
+  </div>
+  <div class="info-card">
+    <div class="icon">🕐</div>
+    <h4>邮政编码</h4>
+    <p>518100</p>
+  </div>
+</div>
+
+<!-- 地图 -->
+<div class="map-section">
+  <div class="map-container" style="position:relative;height:360px;border-radius:16px;overflow:hidden;background:#f0f0f0">
+    <!-- 替换成你们的工厂实景照片 -->
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80" 
+         alt="工厂" 
+         style="width:100%;height:100%;object-fit:cover;opacity:0.6">
+    
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+      <div style="background:#fff;padding:24px 32px;border-radius:14px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.15);max-width:420px">
+        <div style="font-size:36px;margin-bottom:10px">📍</div>
+        <div style="font-size:17px;font-weight:700;color:#1a1a2e;margin-bottom:6px">新安德盛轻胶制品厂</div>
+        <div style="font-size:13px;color:#666;margin-bottom:16px;line-height:1.6">
+          广东省深圳市宝安区<br>
+          <span style="color:#999">属下企业：惠州 · 深圳 · 中山</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+          <!-- 腾讯地图 -->
+          <a href="https://map.qq.com/?search=深圳市宝安区" 
+             target="_blank"
+             style="background:#3190e9;color:#fff;padding:8px 14px;border-radius:6px;font-size:12px;text-decoration:none">
+             腾讯地图
+          </a>
+          <!-- 百度地图 -->
+          <a href="https://api.map.baidu.com/marker?location=22.55,113.88&title=新安德盛&content=深圳市宝安区"
+             target="_blank"
+             style="background:#de5353;color:#fff;padding:8px 14px;border-radius:6px;font-size:12px;text-decoration:none">
+             百度地图
+          </a>
+          <!-- 高德地图 -->
+          <a href="https://gaode.com/search?query=深圳市宝安区"
+             target="_blank"
+             style="background:#00b594;color:#fff;padding:8px 14px;border-radius:6px;font-size:12px;text-decoration:none">
+             高德地图
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 表单区 -->
+<div class="form-section" id="inquiry">
+  <div class="form-tabs">
+    <button class="active" onclick="switchForm('inquiry')">在线咨询</button>
+    <button onclick="switchForm('quote')">报价申请</button>
+  </div>
+
+  <!-- 在线咨询表单 -->
+  <div class="form-panel active" id="panel-inquiry">
+    <div class="success-msg" id="success-inquiry">✓ 提交成功！我们的工作人员将在24小时内与您联系。</div>
+    <form id="form-inquiry" onsubmit="return handleSubmit(event,'inquiry')">
+      <div class="form-row">
+        <div class="form-group">
+          <label>姓名 *</label>
+          <input type="text" name="name" required placeholder="请输入您的姓名">
+        </div>
+        <div class="form-group">
+          <label>公司名称</label>
+          <input type="text" name="company" placeholder="请输入公司名称">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>联系电话 *</label>
+          <input type="tel" name="phone" required placeholder="请输入联系电话">
+        </div>
+        <div class="form-group">
+          <label>电子邮箱 *</label>
+          <input type="email" name="email" required placeholder="请输入邮箱地址">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>咨询内容 *</label>
+        <textarea name="message" required placeholder="请描述您的需求或问题..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">提交咨询</button>
+    </form>
+  </div>
+
+  <!-- 报价申请表单 -->
+  <div class="form-panel" id="panel-quote">
+    <div class="success-msg" id="success-quote">✓ 报价申请已提交！技术团队将尽快评估并反馈。</div>
+    <form id="form-quote" onsubmit="return handleSubmit(event,'quote')">
+      <div class="form-row">
+        <div class="form-group">
+          <label>姓名 *</label>
+          <input type="text" name="name" required placeholder="请输入您的姓名">
+        </div>
+        <div class="form-group">
+          <label>公司名称 *</label>
+          <input type="text" name="company" required placeholder="请输入公司名称">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>联系电话 *</label>
+          <input type="tel" name="phone" required placeholder="请输入联系电话">
+        </div>
+        <div class="form-group">
+          <label>电子邮箱 *</label>
+          <input type="email" name="email" required placeholder="请输入邮箱地址">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>应用领域</label>
+          <select name="industry">
+            <option value="">请选择应用领域</option>
+            <option value="消费电子">消费电子</option>
+            <option value="汽车电子">汽车电子</option>
+            <option value="新能源">电源与新能源</option>
+            <option value="智能家电">智能家电</option>
+            <option value="医疗器械">医疗器械</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>预估月用量</label>
+          <input type="text" name="volume" placeholder="例如：10万PCS/月">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>产品需求描述 *</label>
+        <textarea name="requirement" required placeholder="请描述材料类型、尺寸规格、厚度、特殊要求（如阻燃等级、导热系数）等..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>图纸上传</label>
+        <input type="file" name="drawing" accept=".pdf,.dwg,.step,.stp">
+        <p style="font-size:12px;color:var(--text-light);margin-top:4px">支持 PDF、DWG、STEP 格式，最大 10MB</p>
+      </div>
+      <button type="submit" class="btn-submit">提交报价申请</button>
+    </form>
+  </div>
+</div>
+
+<div style="height:200px;background:#0f172a"></div>
+
+<script>
+function switchForm(type){
+  document.querySelectorAll('.form-tabs button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.form-panel').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('panel-'+type).classList.add('active');
+  history.replaceState(null,null,'/contact/#'+type);
+}
+
+function handleSubmit(e,type){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('.btn-submit');
+  const originalText=btn.innerText;
+  
+  // 简单验证
+  const email=form.querySelector('[name="email"]').value;
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    alert('请输入有效的电子邮箱地址');return false;
+  }
+  
+  btn.innerText='提交中...';btn.disabled=true;
+  
+  // 模拟提交（实际使用时替换为 AJAX 或表单服务）
+  setTimeout(()=>{
+    document.getElementById('success-'+type).style.display='block';
+    form.reset();
+    btn.innerText=originalText;btn.disabled=false;
+    document.getElementById('success-'+type).scrollIntoView({behavior:'smooth',block:'center'});
+  },1500);
+  
+  return false;
+}
+
+// 根据锚点自动切换表单
+if(location.hash==='#quote')switchForm('quote');
+</script>
+</body>
+</html>
